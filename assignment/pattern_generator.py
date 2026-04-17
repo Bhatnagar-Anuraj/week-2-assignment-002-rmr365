@@ -81,8 +81,16 @@ def generate_pattern():
     #
     #           # TODO: (Optional) Vary the scale using cmds.scale().
 
-    pass  # Remove this line once you add your code.
+for row in range(5):
+	for col in range(5):
+		tile_name = f"tile_{row}_{col}"
+		cmds.polyCube(name=tile_name, w=1, h=0.1, d=1)
+		cmds.move(col, 0, row, tile_name)
 
+		if (row + col) % 2 == 0:
+			print(f"{tile_name}: white")
+		else:
+			print(f"{tile_name}: black")
 
 # ---------------------------------------------------------------------------
 # Run the generator
